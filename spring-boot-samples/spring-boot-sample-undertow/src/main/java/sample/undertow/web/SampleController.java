@@ -16,10 +16,10 @@
 
 package sample.undertow.web;
 
-import java.util.concurrent.Callable;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.Callable;
 
 @RestController
 public class SampleController {

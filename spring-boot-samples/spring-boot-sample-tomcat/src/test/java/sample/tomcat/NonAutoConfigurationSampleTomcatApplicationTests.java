@@ -18,9 +18,6 @@ package sample.tomcat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import sample.tomcat.service.HelloWorldService;
-import sample.tomcat.web.SampleController;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration;
@@ -37,6 +34,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import sample.tomcat.service.HelloWorldService;
+import sample.tomcat.web.SampleController;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

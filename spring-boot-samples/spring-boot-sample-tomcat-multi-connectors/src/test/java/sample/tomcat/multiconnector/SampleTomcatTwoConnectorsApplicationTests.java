@@ -20,8 +20,6 @@ import org.apache.catalina.Service;
 import org.apache.catalina.connector.Connector;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import sample.tomcat.multiconnector.SampleTomcatTwoConnectorsApplicationTests.Ports;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -36,6 +34,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import sample.tomcat.multiconnector.SampleTomcatTwoConnectorsApplicationTests.Ports;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
