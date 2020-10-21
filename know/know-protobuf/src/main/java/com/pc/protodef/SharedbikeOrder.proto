@@ -1,0 +1,51 @@
+syntax = "proto2";
+
+// 5、订单信息
+message SharedbikeOrder
+{
+  // 订单id
+  required uint32 orderId          = 1;
+
+  // 企业id
+  required uint32 compId            = 2;
+
+  // 车牌号
+  required string bicycleNo          = 3;
+
+  // 用户账号
+  required string userAccount         = 4;
+
+  // 类型
+  required string orderType              = 5;
+
+  // 订单开始时间
+  required string startTime              = 6;
+
+  // 订单结束时间
+  required string endTime              = 7;
+
+  // 起点区域id
+  required uint32 startAreaId        = 8;
+
+  // 起点经度
+  required double startLng        = 9;
+
+  // 起点纬度
+  required double startLat        = 10;
+
+  // 终点区域id
+  required uint32 endAreaId        = 11;
+
+  // 终点经度
+  required double endLng        = 12;
+
+  // 终点纬度
+  required double endLat        = 13;
+
+  // 骑行总时间
+  required uint32 countTime        = 14;
+
+  // 骑行总里程
+  required double countMillage        = 15;
+
+}

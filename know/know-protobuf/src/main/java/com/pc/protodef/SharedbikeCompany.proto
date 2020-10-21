@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+// 1、企业基本信息
+message SharedbikeCompany
+{
+  // 企业名称
+  required string companyName          = 1;
+
+  // 法人代表
+  required string legalName            = 2;
+
+  // 注册地址
+  required string regAddress          = 3;
+
+  // 统一社会信用代码
+  required string uscc         = 4;
+
+  // 通讯地址
+  required string contactAddress              = 5;
+
+  // 联系人
+  required string contactPerson              = 6;
+
+  // 状态
+  required uint32 state              = 7;
+
+  // 操作标识
+  required uint32 flag        = 8;
+
+  // 更新时间
+  required string updateTime          = 9;
+
+}

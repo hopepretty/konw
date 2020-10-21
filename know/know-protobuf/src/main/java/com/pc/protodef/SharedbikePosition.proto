@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+// 3、车辆动态信息
+message SharedbikePosition
+{
+  // 公司标识
+  required string companyId          = 1;
+
+  // 车辆号牌
+  required string bicycleNo            = 2;
+
+  // 定位时间
+  required string positionTime          = 3;
+
+  // 经度
+  required double lng         = 4;
+
+  // 纬度
+  required double lat              = 5;
+
+  // 报警状态
+  required uint32 alarm              = 6;
+
+  // 营运状态
+  required uint32 state              = 7;
+
+  // 订单编号
+  required string orderId        = 8;
+
+}

@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+// 2、车辆基本信息
+message SharedbikeBasInfo
+{
+  // 公司标识
+  required string companyId          = 1;
+
+  // 车辆号牌
+  required string bicycleNo            = 2;
+
+  // 注册日期
+  required string regDate          = 3;
+
+  // 操作标识
+  required uint32 flag         = 4;
+
+  // 更新ID
+  required uint32 updateID              = 5;
+
+}

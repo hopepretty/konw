@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+// 4、停车区域信息
+message SharedbikeArea
+{
+  // 区域id
+  required uint32 areaId          = 1;
+
+  // 名称
+  required string name            = 2;
+
+  // 经度
+  required double lng          = 3;
+
+  // 纬度
+  required double lat         = 4;
+
+  // 面积
+  required double size              = 5;
+
+  // 类型
+  required uint32 type              = 6;
+
+  // 区域最大车辆数
+  required uint32 maxNum              = 7;
+
+  // 区域当前自行车数量
+  required uint32 num        = 8;
+
+  // 备注
+  required string remark        = 9;
+
+}
