@@ -16,12 +16,12 @@
 
 package sample.integration;
 
-import java.io.File;
-import java.io.FileInputStream;
-
 import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.util.StreamUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
 
 @MessageEndpoint
 public class SampleEndpoint {

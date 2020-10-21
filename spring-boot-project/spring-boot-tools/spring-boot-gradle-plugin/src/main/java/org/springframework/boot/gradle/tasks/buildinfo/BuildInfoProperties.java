@@ -16,15 +16,15 @@
 
 package org.springframework.boot.gradle.tasks.buildinfo;
 
-import java.io.Serializable;
-import java.time.Instant;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.gradle.api.Project;
 import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.Optional;
+
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The properties that are written into the {@code build-info.properties} file.

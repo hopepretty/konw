@@ -16,8 +16,6 @@
 
 package org.springframework.boot.gradle.dsl;
 
-import java.io.File;
-
 import org.gradle.api.Action;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.BasePlugin;
@@ -25,9 +23,10 @@ import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.JavaPluginConvention;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.jvm.tasks.Jar;
-
 import org.springframework.boot.gradle.tasks.buildinfo.BuildInfo;
 import org.springframework.boot.gradle.tasks.buildinfo.BuildInfoProperties;
+
+import java.io.File;
 
 /**
  * Entry point to Spring Boot's Gradle DSL.

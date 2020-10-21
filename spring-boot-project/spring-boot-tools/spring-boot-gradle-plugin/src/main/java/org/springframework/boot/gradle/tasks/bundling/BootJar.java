@@ -16,10 +16,6 @@
 
 package org.springframework.boot.gradle.tasks.bundling;
 
-import java.io.File;
-import java.util.Collections;
-import java.util.concurrent.Callable;
-
 import org.gradle.api.Action;
 import org.gradle.api.file.CopySpec;
 import org.gradle.api.file.FileCollection;
@@ -29,6 +25,10 @@ import org.gradle.api.internal.file.copy.CopyAction;
 import org.gradle.api.specs.Spec;
 import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.bundling.Jar;
+
+import java.io.File;
+import java.util.Collections;
+import java.util.concurrent.Callable;
 
 /**
  * A custom {@link Jar} task that produces a Spring Boot executable jar.

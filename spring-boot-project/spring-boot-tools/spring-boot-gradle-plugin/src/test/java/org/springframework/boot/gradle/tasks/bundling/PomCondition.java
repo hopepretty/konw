@@ -16,17 +16,16 @@
 
 package org.springframework.boot.gradle.tasks.bundling;
 
+import org.assertj.core.api.Condition;
+import org.assertj.core.description.Description;
+import org.assertj.core.description.TextDescription;
+import org.springframework.util.FileCopyUtils;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.assertj.core.api.Condition;
-import org.assertj.core.description.Description;
-import org.assertj.core.description.TextDescription;
-
-import org.springframework.util.FileCopyUtils;
 
 /**
  * AssertJ {@link Condition} for asserting the contents of a pom file.

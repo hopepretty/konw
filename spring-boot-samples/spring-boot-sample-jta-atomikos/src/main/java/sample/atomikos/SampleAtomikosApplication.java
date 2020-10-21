@@ -16,11 +16,11 @@
 
 package sample.atomikos;
 
-import java.io.Closeable;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.io.Closeable;
 
 @SpringBootApplication
 public class SampleAtomikosApplication {

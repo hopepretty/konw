@@ -16,17 +16,16 @@
 
 package org.springframework.boot.gradle.tasks.bundling;
 
+import org.gradle.api.Project;
+import org.gradle.api.tasks.bundling.AbstractArchiveTask;
+import org.springframework.boot.loader.tools.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import org.gradle.api.Project;
-import org.gradle.api.tasks.bundling.AbstractArchiveTask;
-
-import org.springframework.boot.loader.tools.FileUtils;
 
 /**
  * Encapsulates the configuration of the launch script for an executable jar or war.

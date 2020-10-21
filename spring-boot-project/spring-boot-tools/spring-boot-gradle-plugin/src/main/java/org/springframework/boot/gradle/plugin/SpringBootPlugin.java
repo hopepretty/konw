@@ -16,6 +16,16 @@
 
 package org.springframework.boot.gradle.plugin;
 
+import org.gradle.api.GradleException;
+import org.gradle.api.Plugin;
+import org.gradle.api.Project;
+import org.gradle.api.artifacts.Configuration;
+import org.gradle.api.artifacts.ResolvableDependencies;
+import org.gradle.util.GradleVersion;
+import org.springframework.boot.gradle.dsl.SpringBootExtension;
+import org.springframework.boot.gradle.tasks.bundling.BootJar;
+import org.springframework.boot.gradle.tasks.bundling.BootWar;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.JarURLConnection;
@@ -25,17 +35,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.jar.Attributes;
 import java.util.jar.JarFile;
-
-import org.gradle.api.GradleException;
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
-import org.gradle.api.artifacts.Configuration;
-import org.gradle.api.artifacts.ResolvableDependencies;
-import org.gradle.util.GradleVersion;
-
-import org.springframework.boot.gradle.dsl.SpringBootExtension;
-import org.springframework.boot.gradle.tasks.bundling.BootJar;
-import org.springframework.boot.gradle.tasks.bundling.BootWar;
 
 /**
  * Gradle plugin for Spring Boot.

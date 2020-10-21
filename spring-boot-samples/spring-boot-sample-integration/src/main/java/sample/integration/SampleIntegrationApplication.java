@@ -16,9 +16,6 @@
 
 package sample.integration;
 
-import java.io.File;
-import java.util.function.Consumer;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -30,6 +27,9 @@ import org.springframework.integration.dsl.Pollers;
 import org.springframework.integration.dsl.SourcePollingChannelAdapterSpec;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.FileWritingMessageHandler;
+
+import java.io.File;
+import java.util.function.Consumer;
 
 @SpringBootApplication
 @EnableConfigurationProperties(ServiceProperties.class)

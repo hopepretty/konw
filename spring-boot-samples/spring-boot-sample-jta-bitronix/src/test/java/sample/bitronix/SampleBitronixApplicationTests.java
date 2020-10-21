@@ -20,7 +20,6 @@ import bitronix.tm.resource.jms.PoolingConnectionFactory;
 import org.assertj.core.api.Condition;
 import org.junit.Rule;
 import org.junit.Test;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.rule.OutputCapture;
 import org.springframework.context.ApplicationContext;

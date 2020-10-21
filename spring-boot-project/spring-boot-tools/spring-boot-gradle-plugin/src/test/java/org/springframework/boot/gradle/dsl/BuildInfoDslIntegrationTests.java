@@ -16,17 +16,16 @@
 
 package org.springframework.boot.gradle.dsl;
 
+import org.gradle.testkit.runner.TaskOutcome;
+import org.junit.Rule;
+import org.junit.Test;
+import org.springframework.boot.gradle.tasks.buildinfo.BuildInfo;
+import org.springframework.boot.gradle.testkit.GradleBuild;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-
-import org.gradle.testkit.runner.TaskOutcome;
-import org.junit.Rule;
-import org.junit.Test;
-
-import org.springframework.boot.gradle.tasks.buildinfo.BuildInfo;
-import org.springframework.boot.gradle.testkit.GradleBuild;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
