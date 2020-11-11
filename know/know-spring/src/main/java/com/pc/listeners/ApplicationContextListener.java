@@ -4,8 +4,8 @@ import com.pc.spring.importannotation.Bean1;
 import org.springframework.boot.context.event.*;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * spring容器上下文监听

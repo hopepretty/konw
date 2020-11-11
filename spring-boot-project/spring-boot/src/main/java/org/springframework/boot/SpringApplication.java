@@ -281,33 +281,41 @@ public class SpringApplication {
 		configureHeadlessProperty();
 		// TODO: 2020/10/21 从spring.factories文件中获取监听类实例
 		SpringApplicationRunListeners listeners = getRunListeners(args);
-		// TODO: 2020/10/21  调用starting方法，内部发布相关事件，事件监听者便可以收到
+		// TODO: 2020/10/21  依次为监听类发布相关事件，监听者便可以收到
 		listeners.starting();
 		try {
 			ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
-			//
+			// TODO: 2020/11/11 准备运行时环境（一般是web工程环境），并发布相关事件
 			ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
 			configureIgnoreBeanInfo(environment);
+			// TODO: 2020/11/11 打印banner
 			Banner printedBanner = printBanner(environment);
+			// TODO: 2020/11/11 根据当前环境（是不是web工程）创建应用上下文
 			context = createApplicationContext();
+			// TODO: 2020/11/11 获取springboot启动失败后需要加载的组件
 			exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
 					new Class[] { ConfigurableApplicationContext.class }, context);
+			// TODO: 2020/11/11 初始化容器之前需要做的事情
 			prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+			// TODO: 2020/11/11 初始化spring容器
 			refreshContext(context);
 			afterRefresh(context, applicationArguments);
 			stopWatch.stop();
 			if (this.logStartupInfo) {
 				new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
 			}
+			// TODO: 2020/11/11 发布上下文环境加载完毕事件 
 			listeners.started(context);
 			callRunners(context, applicationArguments);
 		}
 		catch (Throwable ex) {
+			// TODO: 2020/11/11 同上，springboot异常处理
 			handleRunFailure(context, ex, exceptionReporters, listeners);
 			throw new IllegalStateException(ex);
 		}
 
 		try {
+			// TODO: 2020/11/11 发布上下文已完全加载好事件
 			listeners.running(context);
 		}
 		catch (Throwable ex) {
@@ -319,10 +327,12 @@ public class SpringApplication {
 
 	private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
 			ApplicationArguments applicationArguments) {
-		// Create and configure the environment
+		// 创建当前环境
 		ConfigurableEnvironment environment = getOrCreateEnvironment();
+		//渲染配置环境
 		configureEnvironment(environment, applicationArguments.getSourceArgs());
 		ConfigurationPropertySources.attach(environment);
+		// TODO: 2020/11/11 发布环境已经准备好事件
 		listeners.environmentPrepared(environment);
 		bindToSpringApplication(environment);
 		if (!this.isCustomEnvironment) {
@@ -346,9 +356,11 @@ public class SpringApplication {
 
 	private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment,
 			SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) {
+		//将环境变量塞入上下文对象
 		context.setEnvironment(environment);
 		postProcessApplicationContext(context);
 		applyInitializers(context);
+		// TODO: 2020/11/11 继续发布上下文已准备好事件
 		listeners.contextPrepared(context);
 		if (this.logStartupInfo) {
 			logStartupInfo(context.getParent() == null);
@@ -368,6 +380,7 @@ public class SpringApplication {
 		Set<Object> sources = getAllSources();
 		Assert.notEmpty(sources, "Sources must not be empty");
 		load(context, sources.toArray(new Object[0]));
+		// TODO: 2020/11/11 继续发布事件
 		listeners.contextLoaded(context);
 	}
 
@@ -475,6 +488,7 @@ public class SpringApplication {
 		if (this.defaultProperties != null && !this.defaultProperties.isEmpty()) {
 			sources.addLast(new MapPropertySource("defaultProperties", this.defaultProperties));
 		}
+		// TODO: 2020/11/11 添加命令行参数 如果存在命令行参数则将原有的替换掉 就体现出了这个命令行参数比应用配置文件的优先级高的情况了
 		if (this.addCommandLineProperties && args.length > 0) {
 			String name = CommandLinePropertySource.COMMAND_LINE_PROPERTY_SOURCE_NAME;
 			if (sources.contains(name)) {
@@ -553,6 +567,8 @@ public class SpringApplication {
 		if (contextClass == null) {
 			try {
 				switch (this.webApplicationType) {
+					// TODO: 2020/11/11 创建org.springframework.boot."
+					//			+ "web.servlet.context.AnnotationConfigServletWebServerApplicationContext 类对象
 				case SERVLET:
 					contextClass = Class.forName(DEFAULT_SERVLET_WEB_CONTEXT_CLASS);
 					break;
@@ -569,6 +585,7 @@ public class SpringApplication {
 						ex);
 			}
 		}
+		//通过类对象获取一个实例对象返回
 		return (ConfigurableApplicationContext) BeanUtils.instantiateClass(contextClass);
 	}
 
@@ -578,6 +595,8 @@ public class SpringApplication {
 	 * @param context the application context
 	 */
 	protected void postProcessApplicationContext(ConfigurableApplicationContext context) {
+		// TODO: 2020/11/11 这一块默认beanNameGenerator和resourceLoader都是空的，
+		//  只有当我们自定义这两个对象时才会把容器内的bean替换
 		if (this.beanNameGenerator != null) {
 			context.getBeanFactory().registerSingleton(AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR,
 					this.beanNameGenerator);
@@ -727,6 +746,7 @@ public class SpringApplication {
 	 * @param applicationContext the application context to refresh
 	 */
 	protected void refresh(ApplicationContext applicationContext) {
+		// TODO: 2020/11/11 初始化容器
 		Assert.isInstanceOf(AbstractApplicationContext.class, applicationContext);
 		((AbstractApplicationContext) applicationContext).refresh();
 	}
