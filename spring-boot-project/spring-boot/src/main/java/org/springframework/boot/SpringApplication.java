@@ -240,13 +240,17 @@ public class SpringApplication {
 		this.resourceLoader = resourceLoader;
 		Assert.notNull(primarySources, "PrimarySources must not be null");
 		this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
+		//获取工程类型
 		this.webApplicationType = WebApplicationType.deduceFromClasspath();
+		//从spring-boot包下的"META-INF/spring.factories"路径加载ClassLoader, 获取指定类 ，并实例化所有对象
 		setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
 		//加载配置在springfactories中的接口实现类实例
 		setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+		//推断异常堆栈中main函数所在的类，并创建类对象
 		this.mainApplicationClass = deduceMainApplicationClass();
 	}
 
+	// TODO: 2020/11/11 推断异常堆栈中main函数所在的类，并创建类对象
 	private Class<?> deduceMainApplicationClass() {
 		try {
 			StackTraceElement[] stackTrace = new RuntimeException().getStackTrace();
@@ -277,10 +281,11 @@ public class SpringApplication {
 		configureHeadlessProperty();
 		// TODO: 2020/10/21 从spring.factories文件中获取监听类实例
 		SpringApplicationRunListeners listeners = getRunListeners(args);
-		// TODO: 2020/10/21  ApplicationStartingEvent调用
+		// TODO: 2020/10/21  调用starting方法，内部发布相关事件，事件监听者便可以收到
 		listeners.starting();
 		try {
 			ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+			//
 			ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
 			configureIgnoreBeanInfo(environment);
 			Banner printedBanner = printBanner(environment);
@@ -394,6 +399,7 @@ public class SpringApplication {
 		return getSpringFactoriesInstances(type, new Class<?>[] {});
 	}
 
+	// TODO: 2020/10/21 根据类型，获取jar中spirng.factories中的对象
 	private <T> Collection<T> getSpringFactoriesInstances(Class<T> type, Class<?>[] parameterTypes, Object... args) {
 		ClassLoader classLoader = getClassLoader();
 		// Use names and ensure unique to protect against duplicates
@@ -1193,6 +1199,8 @@ public class SpringApplication {
 	 * @return the running {@link ApplicationContext}
 	 */
 	public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
+		// TODO: 2020/11/11
+		// 1、初始化
 		return new SpringApplication(primarySources).run(args);
 	}
 

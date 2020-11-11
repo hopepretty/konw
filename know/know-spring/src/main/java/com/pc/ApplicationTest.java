@@ -4,6 +4,7 @@ import com.pc.spring.importannotation.ImportLoader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * 启动类
@@ -16,7 +17,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 public class ApplicationTest {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationTest.class);
-    }
+		ConfigurableApplicationContext run = SpringApplication.run(ApplicationTest.class);
+	}
 
 }

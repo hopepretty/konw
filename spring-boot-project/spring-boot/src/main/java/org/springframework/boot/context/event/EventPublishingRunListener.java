@@ -67,6 +67,8 @@ public class EventPublishingRunListener implements SpringApplicationRunListener,
 
 	@Override
 	public void starting() {
+		// TODO: 2020/11/11 发布事件
+		// 发布相关事件后，事件监听者便可以收到发布的事件
 		this.initialMulticaster.multicastEvent(new ApplicationStartingEvent(this.application, this.args));
 	}
 
