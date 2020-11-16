@@ -1,4 +1,4 @@
-package com.pc.config;
+package com.pc.redis;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,13 +17,10 @@ import java.util.Iterator;
  **/
 public class MyWebSocketClient extends WebSocketClient {
 
-	private Test test;
-
     static Log log = LogFactory.getLog(MyWebSocketClient.class);
 
-    public MyWebSocketClient(URI serverUri, Draft protocolDraft, Test test) {
+    public MyWebSocketClient(URI serverUri, Draft protocolDraft) {
         super(serverUri, protocolDraft);
-        this.test = test;
     }
 
     @Override
@@ -37,7 +34,6 @@ public class MyWebSocketClient extends WebSocketClient {
 
     @Override
     public void onMessage(String s) {
-		test.message(s);
         log.info("接收到服务端发送的消息：" + s);
     }
 

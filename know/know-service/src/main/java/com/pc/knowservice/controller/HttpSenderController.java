@@ -2,7 +2,10 @@ package com.pc.knowservice.controller;
 
 import com.pc.bean.HttpResult;
 import com.pc.bean.User;
+import com.pc.redis.RedisClient;
+import com.pc.redis.RedisManager;
 import com.pc.util.JsonUtil;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,14 @@ import java.util.List;
 @RequestMapping("httpSender")
 @RestController
 public class HttpSenderController {
+
+	@GetMapping("redisSet")
+	public String redisSet(String key) {
+		RedisClient redisClient = RedisManager.getInstance("test");
+		System.out.println(redisClient.set(key, "你好"));
+		System.out.println(redisClient.get(key, String.class));
+		return "成功";
+	}
 
     /**
      * post测试

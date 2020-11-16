@@ -2,3 +2,16 @@ server:
   port: 8080
   servlet:
     context-path: /service
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        #连接池最大链接数默认值为8
+        max-active: 8
+        #连接池最大阻塞时间（使用负值表示没有限制）默认为-1
+        max-wait: -1
+        #连接池中的最大空闲连接数 默认为8
+        max-idle: 8
+        min-idle: 0

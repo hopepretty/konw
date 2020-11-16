@@ -27,6 +27,7 @@
         <module>know-webservice</module>
         <module>know-jvm</module>
         <module>know-spring</module>
+		<module>know-spring-security</module>
     </modules>
     <packaging>pom</packaging>
 

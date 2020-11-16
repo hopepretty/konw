@@ -1,6 +1,6 @@
 package com.pc.controller;
 
-import com.pc.config.MyWebSocketClient;
+import com.pc.redis.MyWebSocketClient;
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft_6455;
 import org.springframework.web.bind.annotation.GetMapping;

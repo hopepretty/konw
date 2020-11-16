@@ -5,7 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.boot</groupId>
 	<version>${revision}</version>
-	<artifactId>spring-boot-build</artifactId>
+    <modules>
+        <module>know/know-spring-redis</module>
+		<module>know/know-spring-redis</module>
+		<module>know/know-spring-redis</module>
+	</modules>
+    <artifactId>spring-boot-build</artifactId>
 	<packaging>pom</packaging>
 	<name>Spring Boot Build</name>
 	<description>Spring Boot Build</description>
