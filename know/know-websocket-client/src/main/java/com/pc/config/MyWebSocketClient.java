@@ -17,10 +17,13 @@ import java.util.Iterator;
  **/
 public class MyWebSocketClient extends WebSocketClient {
 
+	private Test test;
+
     static Log log = LogFactory.getLog(MyWebSocketClient.class);
 
-    public MyWebSocketClient(URI serverUri, Draft protocolDraft) {
+    public MyWebSocketClient(URI serverUri, Draft protocolDraft, Test test) {
         super(serverUri, protocolDraft);
+        this.test = test;
     }
 
     @Override
@@ -34,12 +37,15 @@ public class MyWebSocketClient extends WebSocketClient {
 
     @Override
     public void onMessage(String s) {
+		test.message(s);
         log.info("接收到服务端发送的消息：" + s);
     }
 
     @Override
     public void onClose(int i, String s, boolean b) {
-        log.info("已断开连接：" + s);
+    	while (!this.getReadyState().equals(READYSTATE.OPEN)) {
+			this.connect();
+		}
     }
 
     @Override
