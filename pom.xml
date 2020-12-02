@@ -9,7 +9,8 @@
         <module>know/know-spring-redis</module>
 		<module>know/know-spring-redis</module>
 		<module>know/know-spring-redis</module>
-	</modules>
+        <module>know/know-queryrunner</module>
+    </modules>
     <artifactId>spring-boot-build</artifactId>
 	<packaging>pom</packaging>
 	<name>Spring Boot Build</name>
