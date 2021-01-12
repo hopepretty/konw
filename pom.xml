@@ -10,6 +10,10 @@
 		<module>know/know-spring-redis</module>
 		<module>know/know-spring-redis</module>
         <module>know/know-queryrunner</module>
+        <module>know/know-hanlp</module>
+        <module>know/know-webservice-client</module>
+        <module>know/know-netty</module>
+        <module>know/know-mq</module>
     </modules>
     <artifactId>spring-boot-build</artifactId>
 	<packaging>pom</packaging>

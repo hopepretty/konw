@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: learn-rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    ##  生产者ack确认
+    publisher-confirms: true
+    ##  路由失败回调
+    publisher-returns: true
+    listener:
+      simple:
+        # 每次从RabbitMQ获取的消息数量
+        prefetch: 1
+        default-requeue-rejected: false
+        # 每个队列启动的消费者数量
+        concurrency: 1
+        # 每个队列最大的消费者数量
+        max-concurrency: 1
+        # 签收模式为手动签收-那么需要在代码中手动ACK
+        acknowledge-mode: manual
+
+app:
+  rabbitmq:
+    # 队列定义
+    queue:
+      # 正常业务队列
+      user: user-queue
+      # 死信队列
+      user-dead-letter: user-dead-letter-queue
+    # 交换机定义
+    exchange:
+      # 正常业务交换机
+      user: user-exchange
+      # 死信交换机
+      common-dead-letter: common-dead-letter-exchange

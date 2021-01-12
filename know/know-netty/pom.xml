@@ -9,25 +9,19 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>know-queryrunner</artifactId>
+	<artifactId>know-netty</artifactId>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils -->
 		<dependency>
-			<groupId>commons-dbutils</groupId>
-			<artifactId>commons-dbutils</artifactId>
-			<version>1.7</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ibeetl</groupId>
-			<artifactId>beetl</artifactId>
-			<version>2.9.10</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.belerweb</groupId>
-			<artifactId>pinyin4j</artifactId>
-			<version>2.5.0</version>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.20.Final</version>
 		</dependency>
 	</dependencies>
+
 </project>
