@@ -14,7 +14,18 @@
              typeLanguage="http://www.w3.org/2001/XMLSchema">
    <process xmlns="" id="bingxing" isClosed="false" isExecutable="true" processType="None">
       <startEvent id="_2" name="StartEvent"/>
-      <userTask activiti:assignee="zhangsan" activiti:exclusive="true" id="_3" name="UserTask"/>
+      <userTask activiti:assignee="zhangsan" activiti:exclusive="true" id="_3" name="UserTask">
+         <extensionElements>
+            <activiti:taskListener event="create">
+               <activiti:field>
+                  <activiti:string></activiti:string>
+               </activiti:field>
+               <activiti:field>
+                  <activiti:string></activiti:string>
+               </activiti:field>
+            </activiti:taskListener>
+         </extensionElements>
+      </userTask>
       <userTask activiti:assignee="lisi" activiti:exclusive="true" id="_4" name="UserTask"/>
       <exclusiveGateway gatewayDirection="Unspecified" id="_5" name="ExclusiveGateway"/>
       <userTask activiti:assignee="wangwu" activiti:exclusive="true" id="_6" name="UserTask"/>

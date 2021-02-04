@@ -8,7 +8,6 @@ package com.pc.innerclass;
  * 2、普通内部类对象隐式的保存了一个引用，指向创建它的外部类对象
  * 3、不能从嵌套类的对象中访问非静态的外部类对象
  * 4、普通的内部类不能有static数据与static字段，也不能包含嵌套类，但嵌套类可以包含所有这些东西
- *
  */
 public class DotThis {
 

@@ -73,4 +73,15 @@ public class DbOprController {
 		}
 	}
 
+	public static void test1(QueryRunner queryRunner, Connection conn) throws SQLException {
+		List<Map<String, Object>> result = queryRunner.query(conn, "", new MapListHandler());
+		for (Map<String, Object> map : result) {
+			String lng = String.valueOf(map.get("lng"));
+			try {
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

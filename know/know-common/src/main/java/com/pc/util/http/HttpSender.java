@@ -257,7 +257,7 @@ public class HttpSender {
                 httpPost.setEntity(stringEntity);
             } else if (httpMethod instanceof HttpGet) {
                 if (getParams.size() > 0) {
-                    httpMethod.setURI(URI.create(this.url + "?" + com.sun.deploy.util.StringUtils.join(getParams, "&")));
+                    httpMethod.setURI(URI.create(this.url + "?" + StringUtils.join(getParams, "&")));
                 }
             }
             httpMethod.setConfig(requestConfig);
@@ -299,6 +299,21 @@ public class HttpSender {
         return result;
     }
 
+	/**
+	 * 返回字节数组
+	 *
+	 * @return
+	 */
+	public byte[] getByte() {
+		byte[] bytes = null;
+		try {
+			bytes = EntityUtils.toByteArray(httpResponse.getEntity());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bytes;
+	}
+
     /**
      * 返回流
      *
@@ -317,21 +332,6 @@ public class HttpSender {
             }
         }
         return inputStream;
-    }
-
-    /**
-     * 返回字节数组
-     *
-     * @return
-     */
-    public byte[] getByte() {
-        byte[] bytes = null;
-        try {
-            bytes = EntityUtils.toByteArray(httpResponse.getEntity());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bytes;
     }
 
     /**

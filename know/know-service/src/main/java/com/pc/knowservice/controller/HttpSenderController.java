@@ -5,6 +5,8 @@ import com.pc.bean.User;
 import com.pc.redis.RedisClient;
 import com.pc.redis.RedisManager;
 import com.pc.util.JsonUtil;
+import com.pc.util.http.HttpSender;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -25,10 +27,10 @@ public class HttpSenderController {
 	private AtomicInteger count = new AtomicInteger(0);
 
 	@GetMapping("jmeter")
-	public String jmeter(String key) {
-		System.out.println(key);
-		System.out.println(count.incrementAndGet());
-		return "成功";
+	public ResponseEntity<byte[]> jmeter(String key) {
+		HttpSender instanceGet = HttpSender.getInstanceGet("https://tm.amap.com/trafficengine/mapabc/traffictile?v=1.0&;t=1&x=6831&y=3373&z=13&&t=1611625260000");
+		instanceGet.execute();
+		return FileResponseUtils.from("test", ".png", instanceGet.getByte());
 	}
 
 	@GetMapping("redisSet")

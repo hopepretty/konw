@@ -28,7 +28,8 @@ public class ActivitiBusinessKeyOpr {
         //2、获取runtimeService对象
         RuntimeService runtimeService = defaultProcessEngine.getRuntimeService();
         //3、开启流程  参数表示为流程定义Key与业务数据ID（隐患信息ID）
-        ProcessInstance myProcess_1 = runtimeService.startProcessInstanceByKey("myProcess_1", "123");
+		ProcessInstance myProcess_1 = runtimeService.startProcessInstanceByKey("myProcess_1", "123");
+//		runtimeService.createProcessInstanceQuery().processInstanceBusinessKey("").list();
         System.out.println("流程实例业务ID：" + myProcess_1.getBusinessKey());
     }
 

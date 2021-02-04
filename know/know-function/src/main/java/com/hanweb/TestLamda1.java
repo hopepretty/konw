@@ -60,9 +60,7 @@ public class TestLamda1 {
      */
     @Test
     public void function() {
-        String value = strHandler("你好呀", (a) -> {
-            return a.substring(0, 1);
-        });
+        String value = strHandler("你好呀", (a) -> a.substring(0, 1));
         System.out.println(value);
     }
 

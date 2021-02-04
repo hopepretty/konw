@@ -14,6 +14,7 @@
         <module>know/know-webservice-client</module>
         <module>know/know-netty</module>
         <module>know/know-mq</module>
+        <module>know/know-office</module>
     </modules>
     <artifactId>spring-boot-build</artifactId>
 	<packaging>pom</packaging>

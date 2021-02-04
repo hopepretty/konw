@@ -32,7 +32,7 @@ public class TestStream {
         //3、通过Stream的of方法创建流
         Stream<String> stream2 = Stream.of("aa", "bb", "cc");
         //4、创建无限流
-        Stream<Integer> iterate = Stream.iterate(0, (x) -> x + 2);
+        Stream<Integer> iterate = Stream.iterate(0, x -> x + 2);
         iterate.limit(10).forEach(System.out::println);
         //5、创建无限流
         Stream.generate(Math::random).limit(10).forEach(System.out::println);

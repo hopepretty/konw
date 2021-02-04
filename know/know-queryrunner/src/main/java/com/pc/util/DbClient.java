@@ -1,7 +1,5 @@
 package com.pc.util;
 
-import org.apache.commons.dbutils.QueryRunner;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,12 +11,6 @@ import java.sql.SQLException;
  * @Date 2020/11/26
  **/
 public class DbClient {
-
-	/**
-	 * 数据库操作对象
-	 *
-	 */
-	private QueryRunner queryRunner = new QueryRunner();
 
 	/**
 	 * 驱动

@@ -21,7 +21,7 @@ public class ThreadPool {
 //        ExecutorService executorService = Executors.newFixedThreadPool(5);
         //max = corePoolSize + other 下面最多接受 10 + 8 = 18个线程
         ExecutorService executorService = new ThreadPoolExecutor(
-                5  ,
+                5,
                 10,
                 0L,
                 TimeUnit.MILLISECONDS,
